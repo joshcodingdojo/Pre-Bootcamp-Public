@@ -50,18 +50,20 @@
   </body>
   <script type="text/javascript">
     var world = [
-      [1, 1, 1, 1, 1],
-      [1, 0, 2, 2, 1],
-      [1, 2, 1, 2, 1],
-      [1, 2, 2, 2, 1],
-      [1, 2, 2, 2, 1],
-      [1, 2, 1, 2, 1],
-      [1, 2, 2, 2, 1],
-      [1, 2, 2, 2, 1],
-      [1, 2, 1, 2, 1],
-      [1, 2, 2, 2, 1],
-      [1, 1, 1, 1, 1],
-    ];
+        [1, 1, 1, 1, 1],
+        [1, 0, 2, 2, 1],
+        [1, 2, 1, 2, 1],
+        [1, 2, 2, 2, 1],
+        [1, 2, 2, 2, 1],
+        [1, 2, 1, 2, 1],
+        [1, 2, 2, 2, 1],
+        [1, 2, 2, 2, 1],
+        [1, 2, 1, 2, 1],
+        [1, 2, 2, 2, 1],
+        [1, 1, 1, 1, 1],
+      ],
+      leftValue = 40,
+      topValue = 40;
 
     var worldDct = {
       0: "blank",
@@ -81,7 +83,34 @@
 
       document.getElementById("world").innerHTML = output;
     }
+    function update() {
+      document.getElementById("ninjaman").style.left = leftValue + "px";
+      document.getElementById("ninjaman").style.top = topValue + "px";
+    }
 
     drawWorld();
+
+    var ninjaman = document.getElementById("ninjaman");
+
+    document.onkeydown = function (e) {
+      console.log(e);
+      // LEFT
+      if (e.keyCode == 37) {
+        leftValue -= 40;
+      }
+      // RIGHT
+      if (e.keyCode == 39) {
+        leftValue += 40;
+      }
+      // DOWN
+      if (e.keyCode == 40) {
+        topValue += 40;
+      }
+      // UP
+      if (e.keyCode == 38) {
+        topValue -= 40;
+      }
+      update();
+    };
   </script>
 </html>
