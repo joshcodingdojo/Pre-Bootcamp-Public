@@ -105,26 +105,45 @@
       let wall = document.createElement("div");
       wall.classList.add("wall");
       rowOne.appendChild(wall);
-      console.log(rowOne);
+      // console.log(rowOne);
     }
-    for (let i = 0; i < 5; i++) {
-      let wall = document.createElement("div");
-      wall.classList.add("wall");
-      rowFive.appendChild(wall);
+
+    // worldDiv.appendChild(rowFive);
+    // CREATE SECOND ROW W/ 3 BLANK OR SUSHI IN MIDDLE
+    let rowTwo = document.createElement("div");
+    rowTwo.classList.add("row");
+
+    const rowTwoFirstWall = document.createElement("div");
+    firstWall.classList.add("wall");
+    rowTwo.appendChild(firstWall);
+
+    const blankOrSushi = ["blank", "sushi"];
+    for (let i = 0; i < 3; i++) {
+      const blankOrSushiDiv = document.createElement("div");
+      const htmlClass = blankOrSushi[getRandomInt(2)];
+      blankOrSushiDiv.classList.add(htmlClass);
+      rowTwo.appendChild(blankOrSushiDiv);
     }
+
+    const secondWall = document.createElement("div");
+    secondWall.classList.add("wall");
+    rowTwo.appendChild(secondWall);
+
+    let rowThree = document.createElement("div");
+    rowTwo.classList.add("row");
+
+    // ==============================
     worldDiv.appendChild(rowOne);
-    worldDiv.appendChild(rowFive);
+    worldDiv.appendChild(rowTwo);
 
-    // rowOne.push(walls)
-    // rowTwo
+    // prettier-ignore
+    // for (let i = 0; i < 5; i++) {
+    //   let wall = document.createElement("div");
+    //   wall.classList.add("wall");
+    //   rowFive.appendChild(wall);
+    // }
 
-    // let rowTwo = document.createElement("div")
-    // rowTwo.classList.add("row");
-
-    // rows.forEach((row) => worldDiv.appendChild(row));
-
-    // const
-
-    // document.body.appendChild("")
+    // worldDiv.appendChild(rowOne);
+    // worldDiv.appendChild(rowFive);
   </script>
 </html>
