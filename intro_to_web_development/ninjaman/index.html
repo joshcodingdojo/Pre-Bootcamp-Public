@@ -4,6 +4,127 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ninja Man</title>
+    <style type="text/css">
+      * {
+        padding: 0;
+      }
+      .wall {
+        background-color: blue;
+        height: 40px;
+        width: 40px;
+        display: inline-block;
+      }
+      .sushi {
+        background-color: black;
+        height: 40px;
+        width: 40px;
+        display: inline-block;
+        background-image: url("./img/sushi.png");
+        background-size: contain;
+      }
+      .blank {
+        background-color: black;
+        height: 40px;
+        width: 40px;
+        display: inline-block;
+      }
+      #ninjaman {
+        background-color: blue;
+        height: 40px;
+        width: 40px;
+        display: inline-block;
+        background-image: url("./img/ninja.gif");
+        background-size: contain;
+        position: absolute;
+        left: 40px;
+        top: 40px;
+      }
+      .row {
+        line-height: 0;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <!-- <div id="world">
+      <div class="row">
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+      </div>
+      <div class="row">
+        <div class="wall"></div>
+        <div class="blank"></div>
+        <div class="sushi"></div>
+        <div class="sushi"></div>
+        <div class="wall"></div>
+      </div>
+      <div class="row">
+        <div class="wall"></div>
+        <div class="sushi"></div>
+        <div class="wall"></div>
+        <div class="sushi"></div>
+        <div class="wall"></div>
+      </div>
+      <div class="row">
+        <div class="wall"></div>
+        <div class="blank"></div>
+        <div class="sushi"></div>
+        <div class="blank"></div>
+        <div class="wall"></div>
+      </div>
+      <div class="row">
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+        <div class="wall"></div>
+      </div>
+      <div id="ninjaman"></div>
+    </div> -->
+  </body>
+  <script>
+    // fn to get random int for
+    const getRandomInt = (max) => {
+      return Math.floor(Math.random() * Math.floor(max));
+    };
+
+    // add world div
+    let worldDiv = document.createElement("div");
+    worldDiv.setAttribute("id", "world");
+    document.body.appendChild(worldDiv);
+
+    // make top and bottom walls for row
+    let rowOne = document.createElement("div");
+    rowOne.classList.add("row");
+    let rowFive = document.createElement("div");
+    rowFive.classList.add("row");
+
+    for (let i = 0; i < 5; i++) {
+      let wall = document.createElement("div");
+      wall.classList.add("wall");
+      rowOne.appendChild(wall);
+      console.log(rowOne);
+    }
+    for (let i = 0; i < 5; i++) {
+      let wall = document.createElement("div");
+      wall.classList.add("wall");
+      rowFive.appendChild(wall);
+    }
+    worldDiv.appendChild(rowOne);
+    worldDiv.appendChild(rowFive);
+
+    // rowOne.push(walls)
+    // rowTwo
+
+    // let rowTwo = document.createElement("div")
+    // rowTwo.classList.add("row");
+
+    // rows.forEach((row) => worldDiv.appendChild(row));
+
+    // const
+
+    // document.body.appendChild("")
+  </script>
 </html>
