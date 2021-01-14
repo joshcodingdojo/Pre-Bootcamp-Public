@@ -44,84 +44,44 @@
       }
     </style>
   </head>
-  <body></body>
-  <script>
-    // fn to get random int for
-    const getRandomInt = (max) => {
-      return Math.floor(Math.random() * Math.floor(max));
+  <body>
+    <div id="world"></div>
+    <div id="ninjaman"></div>
+  </body>
+  <script type="text/javascript">
+    var world = [
+      [1, 1, 1, 1, 1],
+      [1, 0, 2, 2, 1],
+      [1, 2, 1, 2, 1],
+      [1, 2, 2, 2, 1],
+      [1, 2, 2, 2, 1],
+      [1, 2, 1, 2, 1],
+      [1, 2, 2, 2, 1],
+      [1, 2, 2, 2, 1],
+      [1, 2, 1, 2, 1],
+      [1, 2, 2, 2, 1],
+      [1, 1, 1, 1, 1],
+    ];
+
+    var worldDct = {
+      0: "blank",
+      1: "wall",
+      2: "sushi",
     };
 
-    // fn to crate wall div w/ class wall
-    const createWallDiv = () => {
-      const wall = document.createElement("div");
-      wall.classList.add("wall");
-      return wall;
-    };
+    function drawWorld() {
+      output = "";
+      for (var row = 0; row < world.length; row++) {
+        output += "<div class='row'>";
+        for (var x = 0; x < world[row].length; x++) {
+          output += "<div class = '" + worldDct[world[row][x]] + "'></div>";
+        }
+        output += "</div>";
+      }
 
-    const blankOrSushi = ["blank", "sushi"];
-    const createBlankOrSushiDiv = () => {
-      const blankOrSushiDiv = document.createElement("div");
-      const htmlClass = blankOrSushi[getRandomInt(2)];
-      blankOrSushiDiv.classList.add(htmlClass);
-      return blankOrSushiDiv;
-    };
-
-    // add world div
-    let worldDiv = document.createElement("div");
-    worldDiv.setAttribute("id", "world");
-    document.body.appendChild(worldDiv);
-
-    // make top and bottom walls for row
-    let rowOne = document.createElement("div");
-    rowOne.classList.add("row");
-    let rowFive = document.createElement("div");
-    rowFive.classList.add("row");
-
-    for (let i = 0; i < 5; i++) {
-      console.log(rowOne);
-      const wall = createWallDiv();
-      rowOne.appendChild(wall);
-      // console.log(rowOne);
-    }
-    for (let i = 0; i < 5; i++) {
-      console.log(rowOne);
-      const wall = createWallDiv();
-      rowFive.appendChild(wall);
-      // console.log(rowOne);
+      document.getElementById("world").innerHTML = output;
     }
 
-    // CREATE SECOND ROW W/ 3 BLANK OR SUSHI IN MIDDLE
-    let rowTwo = document.createElement("div");
-    rowTwo.classList.add("row");
-    rowTwo.appendChild(createWallDiv());
-    for (let i = 0; i < 3; i++) {
-      rowTwo.appendChild(createBlankOrSushiDiv());
-    }
-    rowTwo.appendChild(createWallDiv());
-
-    // CREATE THIRD ROW
-    let rowThree = document.createElement("div");
-    rowThree.classList.add("row");
-    rowThree.appendChild(createWallDiv());
-    rowThree.appendChild(createBlankOrSushiDiv());
-    rowThree.appendChild(createWallDiv());
-    rowThree.appendChild(createBlankOrSushiDiv());
-    rowThree.appendChild(createWallDiv());
-
-    // CREATE FOURTH ROW
-    let rowFour = document.createElement("div");
-    rowFour.classList.add("row");
-    rowFour.appendChild(createWallDiv());
-    for (let i = 0; i < 3; i++) {
-      rowFour.appendChild(createBlankOrSushiDiv());
-    }
-    rowFour.appendChild(createWallDiv());
-
-    // ==============================
-    worldDiv.appendChild(rowOne);
-    worldDiv.appendChild(rowTwo);
-    worldDiv.appendChild(rowThree);
-    worldDiv.appendChild(rowFour);
-    worldDiv.appendChild(rowFive);
+    drawWorld();
   </script>
 </html>
