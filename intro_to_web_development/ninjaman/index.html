@@ -122,6 +122,12 @@
       rowOne.appendChild(wall);
       // console.log(rowOne);
     }
+    for (let i = 0; i < 5; i++) {
+      console.log(rowOne);
+      const wall = createWallDiv();
+      rowFive.appendChild(wall);
+      // console.log(rowOne);
+    }
 
     // CREATE SECOND ROW W/ 3 BLANK OR SUSHI IN MIDDLE
     let rowTwo = document.createElement("div");
@@ -141,10 +147,21 @@
     rowThree.appendChild(createBlankOrSushiDiv());
     rowThree.appendChild(createWallDiv());
 
+    // CREATE FOURTH ROW
+    let rowFour = document.createElement("div");
+    rowFour.classList.add("row");
+    rowFour.appendChild(createWallDiv());
+    for (let i = 0; i < 3; i++) {
+      rowFour.appendChild(createBlankOrSushiDiv());
+    }
+    rowFour.appendChild(createWallDiv());
+
     // ==============================
     worldDiv.appendChild(rowOne);
     worldDiv.appendChild(rowTwo);
     worldDiv.appendChild(rowThree);
+    worldDiv.appendChild(rowFour);
+    worldDiv.appendChild(rowFive);
 
     // prettier-ignore
     // for (let i = 0; i < 5; i++) {
