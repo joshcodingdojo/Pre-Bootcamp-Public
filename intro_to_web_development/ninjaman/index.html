@@ -38,6 +38,7 @@
         position: absolute;
         left: 40px;
         top: 40px;
+        line-height: 0;
       }
       .row {
         line-height: 0;
@@ -95,19 +96,19 @@
     document.onkeydown = function (e) {
       console.log(e);
       // LEFT
-      if (e.keyCode == 37) {
+      if (e.keyCode == 37 && leftValue > 40) {
         leftValue -= 40;
       }
       // RIGHT
-      if (e.keyCode == 39) {
+      if (e.keyCode == 39 && leftValue < 120) {
         leftValue += 40;
       }
       // DOWN
-      if (e.keyCode == 40) {
+      if (e.keyCode == 40 && topValue < 360) {
         topValue += 40;
       }
       // UP
-      if (e.keyCode == 38) {
+      if (e.keyCode == 38 && topValue > 40) {
         topValue -= 40;
       }
       update();
