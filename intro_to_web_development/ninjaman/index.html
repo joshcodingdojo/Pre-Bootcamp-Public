@@ -48,6 +48,7 @@
   <body>
     <div id="world"></div>
     <div id="ninjaman"></div>
+    <h1 id="score">PLAYER SCORE: 0</h1>
   </body>
   <script type="text/javascript">
     var world = [
@@ -69,6 +70,8 @@
       1: "wall",
       2: "sushi",
     };
+
+    var score = 0;
 
     function drawWorld() {
       output = "";
@@ -93,6 +96,11 @@
     function drawNinjaman() {
       document.getElementById("ninjaman").style.top = ninjaman.y * 40 + "px";
       document.getElementById("ninjaman").style.left = ninjaman.x * 40 + "px";
+    }
+
+    function inscreaseScore() {
+      score += 10;
+      document.getElementById("score").innerHTML = "PLAYER SCORE: " + score;
     }
 
     document.onkeydown = function (e) {
@@ -120,6 +128,9 @@
         if (world[ninjaman.y - 1][ninjaman.x] != 1) {
           ninjaman.y--;
         }
+      }
+      if (world[ninjaman.y][ninjaman.x] == 2) {
+        inscreaseScore();
       }
       world[ninjaman.y][ninjaman.x] = 0;
       drawNinjaman();
